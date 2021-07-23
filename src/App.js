@@ -69,8 +69,8 @@ async function BubbleSort(delay = 100) {
 
             // To change background-color of the
             // blocks to be compared
-            blocks[j].style.backgroundColor = "#FF4949";
-            blocks[j + 1].style.backgroundColor = "#FF4949";
+            blocks[j].style.backgroundColor = "#E74C3C";
+            blocks[j + 1].style.backgroundColor = "#E74C3C";
 
             // To wait for .1 sec
             await new Promise((resolve) =>
@@ -91,14 +91,14 @@ async function BubbleSort(delay = 100) {
             }
 
             // Changing the color to the previous one
-            blocks[j].style.backgroundColor = "#6b5b95";
-            blocks[j + 1].style.backgroundColor = "#6b5b95";
+            blocks[j].style.backgroundColor = "#6C3483";
+            blocks[j + 1].style.backgroundColor = "#6C3483";
         }
 
         //changing the color of greatest element
         //found in the above traversal
         blocks[blocks.length - i - 1]
-            .style.backgroundColor = "#13CE66";
+            .style.backgroundColor = "#28B463";
     }
 }
 
@@ -131,7 +131,6 @@ function App() {
             <div id="button-bar">
                 <button id="reset" onClick={clear}><b>Generate Array</b></button>
                 <button id="bubble-sort" onClick={BubbleSort}><b>Bubble Sort</b></button>
-
             </div>
 
             <footer>

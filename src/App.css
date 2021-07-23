@@ -49,7 +49,7 @@ button{
 
 .block {
   width: 28px;
-  background-color: #9900ef;
+  background-color: #6C3483;
   position: absolute;
   bottom: 0px;
   transition: 0.2s all ease;
@@ -60,5 +60,6 @@ button{
   color: black;
   margin-top: -20px;
   width: 100%;
-  text-align: center;
+  font-size: 0; /* don't show numbers above the bars*/
 }
+
