@@ -1,9 +1,13 @@
 .App {
   text-align: center;
-  background-color: orange;
+  background-color: salmon;
+  padding-top: 20px;
 }
 
-
+header{
+  font-size: 40px;
+  color: darkslategrey;
+}
 
 * {
   margin: 0px;
@@ -17,7 +21,7 @@
 }
 
 #array {
-  background-color: white;
+  background-color: mintcream;
   height: 413px;
   width: 598px;
   margin: auto;
@@ -27,4 +31,42 @@
 
 footer{
   padding: 60px;
+  color: darkred;
+}
+
+#button-bar{
+  padding-top: 15px;
+}
+
+button{
+  background-color: lightseagreen;
+  padding: 5px;
+  margin: 10px;
+  font-size: 25px;
+  color: black;
+}
+
+#array {
+  background-color: white;
+  height: 413px;
+  width: 598px;
+  margin: auto;
+  position: relative;
+  margin-top: 64px;
+}
+
+.block {
+  width: 28px;
+  background-color: #6b5b95;
+  position: absolute;
+  bottom: 0px;
+  transition: 0.2s all ease;
+}
+
+.block_id {
+  position: absolute;
+  color: black;
+  margin-top: -20px;
+  width: 100%;
+  text-align: center;
 }
