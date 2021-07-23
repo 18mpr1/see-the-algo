@@ -3,24 +3,20 @@
 import './App.css';
 import './algorithms/bubbleSort';
 
-function helloTest(){
-    console.log("Hello, world");
-}
-
-
 
 // Function to generate the array of blocks
 function generatearray() {
-    for (var i = 0; i < 20; i++) {
 
+    for (let i = 0; i < 20; i++) {
 
-        var container = document.getElementById("array");
+        let container = document.getElementById("array");
+
 
         // Return a value from 1 to 100 (both inclusive)
-        var value = Math.ceil(Math.random() * 100);
+        let value = Math.ceil(Math.random() * 100);
 
         // Creating element div
-        var array_ele = document.createElement("div");
+        let array_ele = document.createElement("div");
 
         // Adding class 'block' to div
         array_ele.classList.add("block");
@@ -31,7 +27,7 @@ function generatearray() {
 
         // Creating label element for displaying
         // size of particular block
-        var array_ele_label = document.createElement("label");
+        let array_ele_label = document.createElement("label");
         array_ele_label.classList.add("block_id");
         array_ele_label.innerText = value;
 
@@ -39,11 +35,89 @@ function generatearray() {
         array_ele.appendChild(array_ele_label);
         container.appendChild(array_ele);
     }
+
+}
+// Promise to swap two blocks
+function swap(el1, el2) {
+    let container = document.getElementById("array");
+
+    return new Promise((resolve) => {
+
+        // For exchanging styles of two blocks
+        let temp = el1.style.transform;
+        el1.style.transform = el2.style.transform;
+        el2.style.transform = temp;
+
+        window.requestAnimationFrame(function() {
+
+            // For waiting for .25 sec
+            setTimeout(() => {
+                container.insertBefore(el2, el1);
+                resolve();
+            }, 250);
+        });
+    });
 }
 
-function clear(){
-    console.log("Clear array");
+async function BubbleSort(delay = 100) {
+    let blocks = document.querySelectorAll(".block");
+    console.log("Bubble Sort");
+
+    // BubbleSort Algorithm
+    for (let i = 0; i < blocks.length; i += 1) {
+        for (let j = 0; j < blocks.length - i - 1; j += 1) {
+
+            // To change background-color of the
+            // blocks to be compared
+            blocks[j].style.backgroundColor = "#FF4949";
+            blocks[j + 1].style.backgroundColor = "#FF4949";
+
+            // To wait for .1 sec
+            await new Promise((resolve) =>
+                setTimeout(() => {
+                    resolve();
+                }, delay)
+            );
+
+            console.log("run");
+            var value1 = Number(blocks[j].childNodes[0].innerHTML);
+            var value2 = Number(blocks[j + 1]
+                .childNodes[0].innerHTML);
+
+            // To compare value of two blocks
+            if (value1 > value2) {
+                await swap(blocks[j], blocks[j + 1]);
+                blocks = document.querySelectorAll(".block");
+            }
+
+            // Changing the color to the previous one
+            blocks[j].style.backgroundColor = "#6b5b95";
+            blocks[j + 1].style.backgroundColor = "#6b5b95";
+        }
+
+        //changing the color of greatest element
+        //found in the above traversal
+        blocks[blocks.length - i - 1]
+            .style.backgroundColor = "#13CE66";
+    }
 }
+
+// Generates array when window loads
+// If the window is reloading, reload
+window.onload = function() {
+    generatearray();
+    var reloading = sessionStorage.getItem("reloading");
+    if (reloading) {
+        sessionStorage.removeItem("reloading");
+        generatearray();
+    }
+}
+
+function clear() {
+    sessionStorage.setItem("reloading", "true");
+    document.location.reload();
+}
+
 
 
 function App() {
@@ -55,12 +129,9 @@ function App() {
 
             </div>
             <div id="button-bar">
-                <button id="reset" onClick={generatearray}><b>Reset Array</b></button>
-                <button id="bubble-sort"><b>Bubble Sort</b></button>
-                <button id="clear-array" onClick={clear}><b>Clear</b></button>
-                <button onClick={helloTest}>
-                    <b>Click to test</b>
-                </button>
+                <button id="reset" onClick={clear}><b>Generate Array</b></button>
+                <button id="bubble-sort" onClick={BubbleSort}><b>Bubble Sort</b></button>
+
             </div>
 
             <footer>
