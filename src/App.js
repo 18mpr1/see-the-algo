@@ -2,9 +2,12 @@
 
 import './App.css';
 import BubbleSort from './algorithms/bubbleSort';
-
-
-
+import MergeSort from "./algorithms/mergeSort";
+import QuickSort from "./algorithms/quickSort";
+import BogoSort from "./algorithms/bogoSort";
+import InsertionSort from "./algorithms/insertionSort";
+import CocktailSort from "./algorithms/cocktailSort";
+import SelectionSort from "./algorithms/selectionSort";
 
 // Function to generate the array of blocks
 function generatearray() {
@@ -70,11 +73,12 @@ function App() {
             <div id="button-bar">
                 <button id="reset" onClick={clear}><b>Generate Array</b></button>
                 <button id="bubble-sort" onClick={BubbleSort}><b>Bubble Sort</b></button>
-                <button id="merge-sort"><b>Merge Sort</b></button>
-                <button id="quick-sort"><b>Quick Sort</b></button>
-                <button id="selection-sort"><b>Selection Sort</b></button>
-                <button id="cocktail-sort"><b>Cocktail Sort</b></button>
-                <button id="insertion-sor"><b>Insertion Sort</b></button>
+                <button id="merge-sort" onClick={MergeSort}><b>Merge Sort</b></button>
+                <button id="quick-sort" onClick={QuickSort}><b>Quick Sort</b></button>
+                <button id="selection-sort" onClick={SelectionSort}><b>Selection Sort</b></button>
+                <button id="cocktail-sort" onClick={CocktailSort}><b>Cocktail Sort</b></button>
+                <button id="insertion-sort" onClick={InsertionSort}><b>Insertion Sort</b></button>
+                <button id="bogo-sort" onClick={BogoSort}><b>Bogo Sort</b></button>
             </div>
 
             <footer>

@@ -23,7 +23,7 @@ async function BubbleSort(delay = 100) {
                 }, delay)
             );
 
-            console.log("run");
+            //console.log("run");
             var value1 = Number(blocks[j].childNodes[0].innerHTML);
             var value2 = Number(blocks[j + 1]
                 .childNodes[0].innerHTML);
