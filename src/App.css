@@ -1,0 +1,30 @@
+.App {
+  text-align: center;
+  background-color: orange;
+}
+
+
+
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+.header {
+  font-size: 20px;
+  text-align: center;
+}
+
+#array {
+  background-color: white;
+  height: 413px;
+  width: 598px;
+  margin: auto;
+  position: relative;
+  margin-top: 64px;
+}
+
+footer{
+  padding: 60px;
+}
